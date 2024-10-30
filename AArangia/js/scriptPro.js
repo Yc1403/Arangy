@@ -12,7 +12,7 @@ class Corsi{
   }
   
   function caricaCorsi(){
-    // fetch
+    
     const URL = "http://localhost:3000/corsi";
   
     fetch(URL)
@@ -33,7 +33,6 @@ class Corsi{
   
   let rigaCorsi = document.querySelector("#rigaCorsi");
   
-  
   /**
    * 
    * @param {Corsi} corso
@@ -48,14 +47,19 @@ class Corsi{
       let card = document.createElement("div");
       card.setAttribute("class", "card");
   
-      card.innerHTML = `<img class="card-img-top" src=${corso.img} alt="" />
-                           <div class="card-body">
-                               <h3 class="card-title">${corso.name}</h3>
-                               <p class="card-text">Id: ${corso.id}</p>
-                               <p class="card-text">Description: ${corso.description}</p>
-                           </div>`;
+      card.innerHTML = `<a href="../pages/SchedeTec.html">
+                          <img class="card-img-top" src=${corso.img} alt="" />
+                        </a>
+                            <div class="card-body">
+                                <h3 class="card-title">${corso.name}</h3>
+                                <p class="card-text">Id: ${corso.id}</p>
+                                <p class="card-text">Description: ${corso.shortDescription}</p>
+                            </div>`;
   
     cardCol.appendChild(card);
   
     return cardCol;
   }
+
+  let btn = document.querySelector("#btn");
+  btn = btn.addEventListener("click", caricaCorsi);
